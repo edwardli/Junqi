@@ -1,0 +1,33 @@
+Pathfinding algorithm pseudocode:
+
+def existsPath(self,start,end):
+
+current_pos = start_pos
+checked_pos = []
+options = []
+while True:
+	for the four surrounding points of current_pos:
+		if the point is the destination:
+			return True
+		elif point is a railroad and point not in checked_pos and there's not a piece on it:
+			options.append(point)
+	if len(options) >= 1:
+		checked_pos.append(current_pos)
+		current_pos = options.pop(0)
+	else:
+		return False
+
+
+Controller class layout:
+class Play
+	initializes board and states
+		randomizes first to move
+	handles all game logic
+	takes care of winning, losing, and revealing
+	delay when switching turns
+
+GUI file
+links the text-based controls in Play to a GUI
+
+__init__ file
+one quick command to start the game
